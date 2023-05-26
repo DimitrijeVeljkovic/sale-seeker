@@ -1,0 +1,16 @@
+:host {
+    .home-page {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: calc(100vh - 100px);
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    }
+}
