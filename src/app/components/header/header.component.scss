@@ -1,13 +1,29 @@
 :host {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #2D2727;
-    padding: 0 21.5px;
+    padding: 0 30px;
     height: 70px;
 
     .logo {
         font-size: xx-large;
         font-weight: 900;
         color: #F6F1F1;
+        cursor: pointer;
+    }
+
+    .navigation {
+        a {
+            margin: 0 5px;
+            border-color: #F6F1F1;
+            color: #F6F1F1;
+            width: 150px;
+
+            &.active {
+                border-color: #FFD740;
+                color: #FFD740;
+            }
+        }
     }
 }

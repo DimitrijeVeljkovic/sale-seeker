@@ -1,1 +1,4 @@
-<p>{{ gender }}</p>
+<div class="products">
+    <app-product *ngFor="let product of productsByGender"
+                 [product]="product"></app-product>
+</div>

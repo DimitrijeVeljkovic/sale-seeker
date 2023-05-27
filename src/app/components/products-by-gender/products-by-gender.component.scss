@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    
+    .products {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+    }
+}

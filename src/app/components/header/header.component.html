@@ -1,3 +1,9 @@
 <div class="logo">
-    <span> SaleSeeker </span>
+    <span routerLink="/home-page"> SaleSeeker </span>
 </div>
+
+<div *ngIf="shouldShowNavigation" class="navigation">
+    <a mat-stroked-button routerLink="/male" routerLinkActive="active">Muška kolekcija</a>
+    <a mat-stroked-button routerLink="/female" routerLinkActive="active">Ženska kolekcija</a>
+</div>
+
