@@ -4,6 +4,7 @@ import { HomePageComponent } from './home-page.component';
 import { TopTenProductsModule } from '../top-ten-products/top-ten-products.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     TopTenProductsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ],
   exports: [
     HomePageComponent

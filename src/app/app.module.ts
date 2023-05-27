@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from './components/header/header.module';
 import { HomePageModule } from './components/home-page/home-page.module';
-import { PriceRsdPipe } from './pipes/price-rsd.pipe';
+import { ProductsByGenderModule } from './components/products-by-gender/products-by-gender.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { PriceRsdPipe } from './pipes/price-rsd.pipe';
     AppRoutingModule,
     BrowserAnimationsModule,
     HeaderModule,
-    HomePageModule
+    HomePageModule,
+    ProductsByGenderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

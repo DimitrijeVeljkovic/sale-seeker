@@ -15,7 +15,8 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            opacity: 0.8;
+            opacity: 0.75;
+            transition: opacity 0.5s linear;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -30,6 +31,7 @@
 
             &:hover {
                 opacity: 1;
+                transition: opacity 0.5s linear;
 
                 button {
                     visibility: visible;
