@@ -1,4 +1,6 @@
-export const MOCK_RESOPONSE = [
+import { Product } from "../interfaces/product.interface";
+
+export const MOCK_ALL_PRODUCTS: Product[] = [
     {
       id: 0,
       productId: 262796,

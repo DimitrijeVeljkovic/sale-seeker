@@ -1,0 +1,56 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 5px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.2);
+
+    .shop-logo {
+        width: 90px;
+    }
+
+    .product-image {
+        width: 200px;
+        border-radius: 10px;
+    }
+
+    .discount-icon {
+        position: absolute;
+        right: -20px;
+        top: -15px;
+        font-size: 30px;
+        background-color: #AA0000;
+        padding: 8px;
+        border-radius: 500px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .price {
+        font-size: 25px;
+        font-weight: 700;
+        margin: 5px;
+    }
+
+    .old-price {
+        color: gray;
+        text-decoration: line-through;
+        margin-bottom: 0;
+    }
+
+    .btn {
+        width: 80%;
+        margin-bottom: 10px;
+
+        ::ng-deep {
+            .mat-button-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+            }
+        }
+    }
+}
