@@ -12,4 +12,10 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public scrollToTopTenProducts() {
+    document.getElementById('top-ten-products')?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
 }

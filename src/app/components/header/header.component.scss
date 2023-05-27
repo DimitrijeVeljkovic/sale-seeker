@@ -1,32 +1,13 @@
 :host {
     display: flex;
     align-items: center;
-    background-color: #ffd740;
+    background-color: #2D2727;
     padding: 0 21.5px;
-    gap: 20px;
+    height: 70px;
 
     .logo {
         font-size: xx-large;
         font-weight: 900;
-        color: white;
-        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    }
-
-    .header-right {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: calc(100vw - 150px);
-
-        mat-form-field {
-            padding-top: 21.5px;
-            width: 400px;
-        }
-
-        button {
-            height: 40px;
-            width: 150px;
-            margin: 0 10px;
-        }
+        color: #F6F1F1;
     }
 }

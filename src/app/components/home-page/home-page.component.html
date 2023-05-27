@@ -1,4 +1,15 @@
-<div class="home-page">
-    <h1>Top 10 Products</h1>
+<div class="gender">
+    <div class="male">
+        <button mat-flat-button> Muška kolekcija </button>
+    </div>
+    <div class="female">
+        <button mat-flat-button> Ženska kolekcija </button>
+    </div>
+</div>
+<div class="see-top-ten">
+    <span> Pogledaj proizvode sa najvećim popustom </span>
+    <mat-icon (click)="scrollToTopTenProducts()">keyboard_arrow_down</mat-icon>
+</div>
+<div class="home-page" id="top-ten-products">
     <app-top-ten-products></app-top-ten-products>
 </div>
