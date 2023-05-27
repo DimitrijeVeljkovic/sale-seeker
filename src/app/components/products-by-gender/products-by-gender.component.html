@@ -1,4 +1,23 @@
-<div class="products">
+<div class="filters">
+    <mat-form-field class="group-by">
+        <mat-label>Grupiši po</mat-label>
+        <mat-select name="food" [(ngModel)]="selectedGroupBy">
+            <mat-option *ngFor="let option of groupByOptions" [value]="option">
+                {{ option.label }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="products" *ngIf="shouldShowAllProducts; else groupBy">
     <app-product *ngFor="let product of productsByGender"
                  [product]="product"></app-product>
 </div>
+
+<ng-template #groupBy>
+    <ng-container *ngFor="let option of groupByOptions">
+        <app-group-by-option [productGroups]="groupedProducts" *ngIf="option === selectedGroupBy"></app-group-by-option>
+    </ng-container>
+</ng-template>
+
+

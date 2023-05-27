@@ -1,0 +1,7 @@
+<mat-chip-list>
+    <mat-chip *ngFor="let group of productGroupNames"
+              (click)="handleGroupSelection(group)"
+              id="{{ group }}"
+              class="chip"> {{ group }} </mat-chip>
+</mat-chip-list>
+<app-grouped-products-section [productGroup]="productGroup"></app-grouped-products-section>
