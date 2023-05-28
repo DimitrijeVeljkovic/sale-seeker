@@ -20,6 +20,10 @@ export class ProductComponent implements OnInit {
     return `${SHOP_BASE_URLS[this.product.shop as keyof ShopUrls]}${this.product.imageUrl}`;
   }
 
+  public get save(): number {
+    return +(this.product.oldPrice - this.product.price).toFixed(2);
+  }
+
   constructor() { }
 
   ngOnInit(): void {

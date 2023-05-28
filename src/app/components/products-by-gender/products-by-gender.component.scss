@@ -5,8 +5,44 @@
     padding-top: 20px;
 
     .filters {
-        .group-by {
-            width: 270px;
+        padding-bottom: 20px;
+
+        mat-expansion-panel {
+            width: 800px;
+
+            mat-expansion-panel-header {
+                background-color: #FFD740;
+
+                mat-panel-title {
+                    justify-content: space-between;
+    
+                    mat-icon {
+                        color: #2D2727;
+                    }
+                }
+            }
+
+            .checkbox-filters {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 20px;
+            }
+
+            .range-filters {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+
+                mat-form-field {
+                    width: 100%;
+                }
+            }
+
+            button {
+                display: block;
+                margin: auto;
+                width: 200px;
+            }
         }
     }
     
@@ -14,6 +50,19 @@
         display: grid;
         grid-template-columns: repeat(5, 270px);
         gap: 30px;
-        padding-top: 20px;
+        padding: 20px 0;
+    }
+
+    .empty-state {
+        color: #AA0000;
+
+        mat-icon {
+            margin: auto;
+            display: block;
+            height: 50px;
+            width: 50px;
+            font-size: 50px;
+            line-height: 50px;
+        }
     }
 }
