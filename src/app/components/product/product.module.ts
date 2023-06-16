@@ -18,7 +18,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   exports: [
-    ProductComponent
+    ProductComponent,
+    PercentageDiscountPipe,
+    PriceRsdPipe
   ]
 })
 export class ProductModule { }

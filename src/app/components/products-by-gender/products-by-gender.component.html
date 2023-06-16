@@ -121,4 +121,4 @@
     </ng-template>
 </ng-container>
 
-
+<button mat-fab class="comparison-button" *ngIf="!comparisonEmpty" (click)="openComparisonDialog()"> <mat-icon>compare</mat-icon> {{ productForComparisonLength }} </button>

@@ -1,0 +1,69 @@
+:host {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 2fr);
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .product-image {
+            width: 90%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .shop-image {
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            width: 170px;
+            margin-bottom: 10px;
+    
+            ::ng-deep {
+                .mat-button-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        .delete-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: whitesmoke;
+        }
+
+        hr {
+            margin: 0;
+            width: 100%;
+        }
+
+        div {
+            width: 100%;
+            height: 30px;
+        }
+    }
+
+    .section-left {
+       justify-content: flex-end;
+
+        div {
+            box-sizing: border-box;
+            background: rgb(#FFD740, 0.8);
+            display: flex;
+            align-items: flex-end;
+            padding: 0 10px;
+        }
+    }
+
+    .background-yellow {
+        background: rgb(#FFD740, 0.4);
+    }
+}

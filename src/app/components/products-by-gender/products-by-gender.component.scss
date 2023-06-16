@@ -98,4 +98,11 @@
             line-height: 50px;
         }
     }
+
+    .comparison-button {
+        position: fixed;
+        bottom: 40px;
+        left: 40px;
+        z-index: 20;
+    }
 }

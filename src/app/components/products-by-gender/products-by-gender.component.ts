@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { SORTING } from 'src/app/constants/sorting-options.constants';
 import { Product } from 'src/app/interfaces/product.interface';
 import { LoadingService } from 'src/app/services/loading.service';
+import { ProductComparisonService } from 'src/app/services/product-comparison.service';
 import { ProductsGetterService } from 'src/app/services/products-getter.service';
+import { ProductComparisonComponent } from '../product-comparison/product-comparison.component';
 
 @Component({
   selector: 'app-products-by-gender',
@@ -70,10 +73,21 @@ export class ProductsByGenderComponent implements OnInit {
   public get allProductsCount(): number {
     return this.originalProductsByGender.length;
   }
+
+  public get comparisonEmpty(): boolean {
+    return this._productComparisonService.comparisonEmpty;
+  }
+
+  public get productForComparisonLength(): number {
+    return this._productComparisonService.productsForComparison.length;
+  }
  
   constructor(private _route: ActivatedRoute,
               private _productsGetterService: ProductsGetterService,
               private _loadingService: LoadingService,
+              private _productComparisonService: ProductComparisonService,
+              private _matDialog: MatDialog,
+              private _viewContainerRef: ViewContainerRef,
               private _fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -179,6 +193,16 @@ export class ProductsByGenderComponent implements OnInit {
         this.filteredProducts.sort((a, b) => (a.name > b.name ? 1 : -1));
         break;
     }
+  }
+
+  public openComparisonDialog() {
+    this._matDialog.open(ProductComparisonComponent, {
+      data: this._productComparisonService.productsForComparison,
+      viewContainerRef: this._viewContainerRef,
+      width: '80vw',
+      height: '80vh',
+      autoFocus: false
+    });
   }
 
   private _scrollTo(id: string) {

@@ -5,7 +5,10 @@
 <p class="price"> {{ product.price | priceRsd }} </p>
 <p class="save"> Ušteda: <strong> {{ save | priceRsd }} </strong> </p>
 <span class="discount-icon"> {{ product.discount | percentageDiscount }} </span>
-<a mat-raised-button color="accent" class="btn" href="{{ product.url }}" target="_blank">
-    <span>Pogledaj proizvod</span>
-    <mat-icon>open_in_new</mat-icon>
-</a>
+<div>
+    <button mat-mini-fab class="compare-btn" [disabled]="comparisonFull" (click)="addProductForComparison()"> <mat-icon>add</mat-icon> </button>
+    <a mat-raised-button color="accent" class="btn" href="{{ product.url }}" target="_blank">
+        <span>Pogledaj proizvod</span>
+        <mat-icon>open_in_new</mat-icon>
+    </a>
+</div>

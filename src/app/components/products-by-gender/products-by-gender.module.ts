@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoadingModule } from '../loading/loading.module';
 import { StringConverterPipe } from 'src/app/pipes/string-converter.pipe';
 import { MatSelectModule } from '@angular/material/select'
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProductComparisonModule } from '../product-comparison/product-comparison.module';
 @NgModule({
   declarations: [
     ProductsByGenderComponent,
@@ -29,7 +31,9 @@ import { MatSelectModule } from '@angular/material/select'
     MatInputModule,
     MatButtonModule,
     LoadingModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    ProductComparisonModule
   ],
   exports: [
     ProductsByGenderComponent
