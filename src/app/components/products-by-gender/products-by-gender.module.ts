@@ -9,9 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { LoadingModule } from '../loading/loading.module';
+import { StringConverterPipe } from 'src/app/pipes/string-converter.pipe';
+import { MatSelectModule } from '@angular/material/select'
 @NgModule({
   declarations: [
-    ProductsByGenderComponent
+    ProductsByGenderComponent,
+    StringConverterPipe
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatCheckboxModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    LoadingModule,
+    MatSelectModule
   ],
   exports: [
     ProductsByGenderComponent

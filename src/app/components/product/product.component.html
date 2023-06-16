@@ -3,7 +3,7 @@
 <img src="{{ productImageUrl }}" alt="{{ product.brand }}" class="product-image">
 <p class="old-price"> {{ product.oldPrice | priceRsd }} </p>
 <p class="price"> {{ product.price | priceRsd }} </p>
-<p class="save"> Ušteda: {{ save | priceRsd }} </p>
+<p class="save"> Ušteda: <strong> {{ save | priceRsd }} </strong> </p>
 <span class="discount-icon"> {{ product.discount | percentageDiscount }} </span>
 <a mat-raised-button color="accent" class="btn" href="{{ product.url }}" target="_blank">
     <span>Pogledaj proizvod</span>

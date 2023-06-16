@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { MOCK_TOP_TEN_PRODUCTS } from '../mocks/mock-top-ten-products';
+import { Observable, map } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
-import { MOCK_ALL_PRODUCTS } from '../mocks/mock-all-products';
+import { HttpClient } from '@angular/common/http';
+import { API_URLS } from '../constants/api.constants';
  
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsGetterService {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
   public getTopTenProducts(): Observable<Product[]> {
-    // toDo: Napravis HTTP request kad BE bude gotov
-    return of(MOCK_TOP_TEN_PRODUCTS);
+    return this._http.get(`${API_URLS.TOP_PRODUCTS}/10`) as Observable<Product[]>;
   }
 
   public getProductsByGender(gender: string): Observable<Product[]> {
-    // toDo: Napravis HTTP request kad BE bude gotov
-    const productsByGender = MOCK_ALL_PRODUCTS.filter(product => product.gender === gender);
-    return of(productsByGender);
+    return (this._http.get(API_URLS.ALL_PRODUCTS) as Observable<Product[]>)
+      .pipe(
+        map(products => products.filter(product => product.gender === gender))
+      );
   }
 }

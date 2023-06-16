@@ -6,6 +6,9 @@
 
     .filters {
         padding-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
 
         mat-expansion-panel {
             width: 800px;
@@ -22,10 +25,33 @@
                 }
             }
 
+            .search-by-name-filter {
+                padding-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h4 {
+                    width: 150px;
+                }
+
+                mat-form-field {
+                    width: calc(100% - 180px);
+                }
+            }
+
             .checkbox-filters {
-                display: grid;
-                grid-template-columns: repeat(6, 1fr);
-                gap: 20px;
+                &__header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                
+                &__body {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    gap: 20px;
+                }
             }
 
             .range-filters {
@@ -43,6 +69,13 @@
                 margin: auto;
                 width: 200px;
             }
+        }
+
+        .product-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
         }
     }
     

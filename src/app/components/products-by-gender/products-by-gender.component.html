@@ -1,4 +1,12 @@
-<div class="filters">
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div class="filters" *ngIf="filtersForm">
+    <mat-form-field>
+        <mat-label>Sortiranje</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let option of sortingOptions" [value]="option" (click)="handleSortChange(option)">{{ option }}</mat-option>
+        </mat-select>
+    </mat-form-field>
     <mat-accordion>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -9,22 +17,50 @@
             </mat-expansion-panel-header>
 
             <form (ngSubmit)="applyFilters()" [formGroup]="filtersForm">
+                <div class="search-by-name-filter">
+                    <h4>Ime proizvoda:</h4>
+                    <mat-form-field>
+                        <mat-label>Unesite ime prozivoda</mat-label>
+                        <input matInput type="text" formControlName="searchTerm">
+                    </mat-form-field>
+                </div>
                 <div formGroupName="category">
-                    <h4>Odaberi kategoriju:</h4>
-                    <div class="checkbox-filters">
-                        <mat-checkbox *ngFor="let category of allCategories" formControlName="{{ category }}">{{ category }}</mat-checkbox>
+                    <div class="checkbox-filters__header">
+                        <h4>Odaberi kategoriju:</h4>
+                        <mat-checkbox [checked]="true"
+                                      (change)="handleSelectAllChange($event, 'CATEGORIES')"
+                                      color="primary">
+                            Odaberi sve kategorije
+                        </mat-checkbox>
+                    </div>
+                    <div class="checkbox-filters__body">
+                        <mat-checkbox *ngFor="let category of allCategories" formControlName="{{ category }}">{{ category | stringConverter }}</mat-checkbox>
                     </div>
                 </div>
                 <div formGroupName="brand">
-                    <h4>Odaberi brend:</h4>
-                    <div  class="checkbox-filters">
-                        <mat-checkbox *ngFor="let brand of allBrands" formControlName="{{ brand }}">{{ brand }}</mat-checkbox>
+                    <div class="checkbox-filters__header">
+                        <h4>Odaberi brend:</h4>
+                        <mat-checkbox [checked]="true" 
+                                      (change)="handleSelectAllChange($event, 'BRANDS')" 
+                                      color="primary">
+                            Odaberi sve brendove
+                        </mat-checkbox>
+                    </div>
+                    <div  class="checkbox-filters__body">
+                        <mat-checkbox *ngFor="let brand of allBrands" formControlName="{{ brand }}">{{ brand | stringConverter }}</mat-checkbox>
                     </div>
                 </div>
                 <div formGroupName="shop">
-                    <h4>Odaberi prodavnicu:</h4>
-                    <div class="checkbox-filters">
-                        <mat-checkbox *ngFor="let shop of allShops" formControlName="{{ shop }}">{{ shop }}</mat-checkbox>
+                    <div class="checkbox-filters__header">
+                        <h4>Odaberi prodavnicu:</h4>
+                        <mat-checkbox [checked]="true" 
+                                      (change)="handleSelectAllChange($event, 'SHOPS')" 
+                                      color="primary">
+                            Odaberi sve prodavnice
+                        </mat-checkbox>
+                    </div>
+                    <div class="checkbox-filters__body">
+                        <mat-checkbox *ngFor="let shop of allShops" formControlName="{{ shop }}">{{ shop | stringConverter }}</mat-checkbox>
                     </div>
                 </div>
                 <div class="range-filters">
@@ -66,18 +102,23 @@
             </form>
         </mat-expansion-panel>
     </mat-accordion>
-</div>
-
-<div class="products" *ngIf="filteredProducts.length > 0; else noProductsMessage" id="products-or-empty">
-    <app-product *ngFor="let product of filteredProducts"
-                 [product]="product"></app-product>
-</div>
-
-<ng-template #noProductsMessage>
-    <div class="empty-state" id="products-or-empty">
-        <mat-icon>block</mat-icon>
-        <h2>Nema proizvoda za odabrane filtere</h2>
+    <div class="product-counter">
+        <strong>{{ filteredProductsCount }}</strong>/{{ allProductsCount }} proizvoda prikazano
     </div>
-</ng-template>
+</div>
+
+<ng-container *ngIf="filteredProducts">
+    <div class="products" *ngIf="filteredProducts.length > 0; else noProductsMessage" id="products-or-empty">
+        <app-product *ngFor="let product of filteredProducts"
+                     [product]="product"></app-product>
+    </div>
+    
+    <ng-template #noProductsMessage>
+        <div class="empty-state" id="products-or-empty">
+            <mat-icon>block</mat-icon>
+            <h2>Nema proizvoda za odabrane filtere</h2>
+        </div>
+    </ng-template>
+</ng-container>
 
 
