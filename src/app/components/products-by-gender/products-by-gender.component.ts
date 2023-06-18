@@ -10,6 +10,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 import { ProductComparisonService } from 'src/app/services/product-comparison.service';
 import { ProductsGetterService } from 'src/app/services/products-getter.service';
 import { ProductComparisonComponent } from '../product-comparison/product-comparison.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-products-by-gender',
@@ -21,6 +22,13 @@ export class ProductsByGenderComponent implements OnInit {
   public originalProductsByGender: Product[] = [];
   public filteredProducts: Product[];
   public filtersForm: FormGroup;
+
+  private _fromIndex = 0;
+  private _toIndex = 59;
+
+  public get chunkOfProducts() {
+    return this.filteredProducts.slice(this._fromIndex, this._toIndex + 1);
+  }
 
   public get allCategories(): string[] {
     return [...new Set(this.originalProductsByGender.map(product => product.category))];
@@ -203,6 +211,11 @@ export class ProductsByGenderComponent implements OnInit {
       height: '80vh',
       autoFocus: false
     });
+  }
+
+  public handlePageChange(event: PageEvent) {
+    this._fromIndex = event.pageIndex * event.pageSize;
+    this._toIndex = (event.pageIndex + 1) * event.pageSize - 1;
   }
 
   private _scrollTo(id: string) {

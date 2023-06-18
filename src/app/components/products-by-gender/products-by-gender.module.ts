@@ -14,6 +14,7 @@ import { StringConverterPipe } from 'src/app/pipes/string-converter.pipe';
 import { MatSelectModule } from '@angular/material/select'
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductComparisonModule } from '../product-comparison/product-comparison.module';
+import { MatPaginatorModule } from '@angular/material/paginator'
 @NgModule({
   declarations: [
     ProductsByGenderComponent,
@@ -33,7 +34,8 @@ import { ProductComparisonModule } from '../product-comparison/product-compariso
     LoadingModule,
     MatSelectModule,
     MatDialogModule,
-    ProductComparisonModule
+    ProductComparisonModule,
+    MatPaginatorModule
   ],
   exports: [
     ProductsByGenderComponent

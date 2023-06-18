@@ -108,8 +108,15 @@
 </div>
 
 <ng-container *ngIf="filteredProducts">
+    <mat-paginator [length]="filteredProducts.length"
+                   [pageSize]="60"
+                   [showFirstLastButtons]="true"
+                   [hidePageSize]="true"
+                   (page)="handlePageChange($event)">
+    </mat-paginator>
+
     <div class="products" *ngIf="filteredProducts.length > 0; else noProductsMessage" id="products-or-empty">
-        <app-product *ngFor="let product of filteredProducts"
+        <app-product *ngFor="let product of chunkOfProducts"
                      [product]="product"></app-product>
     </div>
     

@@ -22,12 +22,12 @@
     <hr>
     <div>{{ product.name }}</div>
     <hr>
-    <div [ngClass]="product.oldPrice === minOldPrice ? 'background-yellow' : ''">{{ product.oldPrice | priceRsd }}</div>
+    <div [ngClass]="product.oldPrice === minOldPrice ? 'highlight' : ''">{{ product.oldPrice | priceRsd }}</div>
     <hr>
-    <div [ngClass]="product.price === minPrice ? 'background-yellow' : ''">{{ product.price | priceRsd }}</div>
+    <div [ngClass]="product.price === minPrice ? 'highlight' : ''">{{ product.price | priceRsd }}</div>
     <hr>
-    <div [ngClass]="save(product) === maxSave ? 'background-yellow' : ''">{{ save(product) | priceRsd }}</div>
+    <div [ngClass]="save(product) === maxSave ? 'highlight' : ''">{{ save(product) | priceRsd }}</div>
     <hr>
-    <div [ngClass]="product.discount === maxDiscount ? 'background-yellow' : ''">{{ product.discount | percentageDiscount }}</div>
+    <div [ngClass]="product.discount === maxDiscount ? 'highlight' : ''">{{ product.discount | percentageDiscount }}</div>
     <hr>
 </div>
