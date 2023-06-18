@@ -7,10 +7,24 @@
     height: 70px;
 
     .logo {
+        font-family: montserratAltLight;
         font-size: xx-large;
-        font-weight: 900;
-        color: #F6F1F1;
-        cursor: pointer;
+        letter-spacing: 5px;
+        transition: letter-spacing 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            letter-spacing: 8px;
+            transition: letter-spacing 0.7s;
+        }
+
+        .sale {
+            color: #CCCCCC;
+        }
+
+        .seeker {
+            color: #FFD740
+        }
     }
 
     .navigation {
