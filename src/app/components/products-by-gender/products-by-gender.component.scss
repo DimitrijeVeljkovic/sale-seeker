@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 :host {
     display: flex;
     flex-direction: column;
@@ -7,10 +9,19 @@
     .filters {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 20px;
+
+        @include for-desktop-small {
+            flex-direction: column;
+        }
 
         mat-expansion-panel {
             width: 800px;
+
+            @include for-tablet {
+                width: 80vw;
+            }
 
             mat-expansion-panel-header {
                 background-color: #FFD740;
@@ -37,6 +48,15 @@
                 mat-form-field {
                     width: calc(100% - 180px);
                 }
+
+                @include for-phone {
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    mat-form-field {
+                        width: 100%;
+                    }
+                }
             }
 
             .checkbox-filters {
@@ -44,12 +64,21 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    gap: 10px;
                 }
                 
                 &__body {
                     display: grid;
                     grid-template-columns: repeat(6, 1fr);
                     gap: 20px;
+
+                    @include for-tablet {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+
+                    @include for-phone {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
                 }
             }
 
@@ -60,6 +89,14 @@
 
                 mat-form-field {
                     width: 100%;
+                }
+
+                @include for-tablet {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include for-tablet {
+                    grid-template-columns: 1fr;
                 }
             }
 
@@ -83,6 +120,22 @@
         grid-template-columns: repeat(5, 270px);
         gap: 30px;
         padding: 20px 0;
+
+        @include for-desktop-normal {
+            grid-template-columns: repeat(4, 270px);
+        }
+
+        @include for-desktop-small {
+            grid-template-columns: repeat(3, 270px);
+        }
+
+        @include for-tablet {
+            grid-template-columns: repeat(2, 270px);
+        }
+
+        @include for-phone {
+            grid-template-columns: 270px;
+        }
     }
 
     .empty-state {

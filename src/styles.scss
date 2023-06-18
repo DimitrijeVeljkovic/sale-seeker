@@ -14,3 +14,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-family: montserratAltLight;
     src: url(app/fonts/montserrat-alt1/fonts/webfonts/MontserratAlt1-Light.woff);
 }
+
+@mixin for-desktop-normal {
+    @media (max-width: 1560px) { @content; }
+}
+
+@mixin for-desktop-small {
+    @media (max-width: 1300px) { @content; }
+}
+
+@mixin for-tablet {
+    @media (max-width: 960px) { @content; }
+}
+
+@mixin for-phone {
+    @media (max-width: 650px) { @content; }
+}
