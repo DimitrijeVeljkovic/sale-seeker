@@ -15,7 +15,7 @@
         transition: letter-spacing 0.5s;
 
         @include for-phone {
-            font-size: large;
+            font-size: x-large;
         }
 
         &:hover {
@@ -44,6 +44,24 @@
                 border-color: #FFD740;
                 color: #FFD740;
             }
+        }
+
+        mat-icon {
+            color: #F6F1F1;
+        }
+    }
+
+    .tablet-nav {
+        display: none;
+
+        @include for-tablet {
+            display: block;
+        }
+    }
+
+    .no-tablet-nav {
+        @include for-tablet {
+            display: none;
         }
     }
 }

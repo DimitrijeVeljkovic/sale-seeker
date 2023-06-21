@@ -1,6 +1,24 @@
+@import '../../../styles.scss';
+
 :host {
     display: grid;
     grid-template-columns: repeat(5, 270px);
     gap: 30px;
     margin-bottom: 30px;
+
+    @include for-desktop-normal {
+        grid-template-columns: repeat(4, 270px);
+    }
+
+    @include for-desktop-small {
+        grid-template-columns: repeat(3, 270px);
+    }
+
+    @include for-tablet {
+        grid-template-columns: repeat(2, 270px);
+    }
+
+    @include for-phone {
+        grid-template-columns: 270px;
+    }
 }

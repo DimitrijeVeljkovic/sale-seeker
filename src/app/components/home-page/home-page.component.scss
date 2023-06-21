@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 :host {
     .home-page {
         display: flex;
@@ -9,6 +11,10 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         height: calc(100vh - 140px);
+
+        @include for-phone {
+            grid-template-columns: 1fr;
+        }
 
         div {
             background-repeat: no-repeat;
@@ -59,6 +65,10 @@
 
         span {
             font-size: 20px;
+
+            @include for-phone {
+                font-size: 15px;
+            }
         }
 
         mat-icon {

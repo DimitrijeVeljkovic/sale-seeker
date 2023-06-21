@@ -2,8 +2,18 @@
     <span class="sale">SALE</span><span class="seeker">SEEKER</span>
 </div>
 
-<div *ngIf="shouldShowNavigation" class="navigation">
+<div *ngIf="shouldShowNavigation" class="navigation no-tablet-nav">
     <a mat-stroked-button routerLink="/male" routerLinkActive="active">Muška kolekcija</a>
     <a mat-stroked-button routerLink="/female" routerLinkActive="active">Ženska kolekcija</a>
+</div>
+
+<div *ngIf="shouldShowNavigation" class="navigation tablet-nav"> 
+    <button mat-icon-button [matMenuTriggerFor]="tabletMenu">
+        <mat-icon> menu </mat-icon>
+    </button>
+    <mat-menu #tabletMenu="matMenu" yPosition="above">
+        <button mat-menu-item routerLink="/male">Muška kolekcija</button>
+        <button mat-menu-item routerLink="/female">Ženska kolekcija</button>
+    </mat-menu>
 </div>
 
